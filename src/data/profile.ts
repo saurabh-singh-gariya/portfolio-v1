@@ -12,6 +12,20 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type Discipline = {
+  label: string;
+  blurb: string;
+};
+
+export type FreelanceProject = {
+  name: string;
+  role: string;
+  period: string;
+  blurb: string;
+  highlights: string[];
+  stack: string[];
+};
+
 export const profile = {
   name: 'Saurabh Singh Gariya',
   title: 'Full Stack Engineer',
@@ -31,13 +45,13 @@ export const roles: Role[] = [
     location: 'Gurugram, India',
     period: 'Jul 2024 — Present',
     highlights: [
-      'Delivered a next-gen point-of-sale platform for a Fortune 50 US retailer, live across 200+ stores — building the React interfaces store associates use, and shipping end-to-end stories that cut average checkout time ~20%.',
-      'Built a Node.js backend-for-frontend consolidating 15+ upstream microservices behind a single façade, with RabbitMQ pub/sub driving real-time updates in the UI.',
-      'Extracted tightly-coupled filter, card and list logic into a shared base package now reused across 5+ screens — ~1,200 lines of duplication removed and ~30% off the time to build a new screen.',
-      'Built REST APIs on a NestJS microservice powering an AI-assist plugin, and co-designed a reusable core library with a senior architect that cut onboarding a new LLM from a week to a day.',
-      'Led a 3-person front-end team to ship a chatbot MVP in 2 months, owning the core components and front-end architecture — cut contract-processing time ~40% and earned Squad of the Quarter.',
-      'Built an agentic report builder (Python, AutoGen) where a selector group-chat orchestrates agents that answer natural-language queries with interactive reports, backed by PostgreSQL and an MCP server.',
-      'Engineered high-throughput real-time services end to end — NestJS APIs with WebSocket streaming, Redis state with leader election across pods, settlement and state-consistency guarantees, shipped on Kubernetes with GitHub Actions.',
+      'POS platform for a Fortune 50 retailer, live in **200+ stores** — checkout **~20% faster**.',
+      'Node.js BFF folding **15+ microservices** into one façade, RabbitMQ driving live UI updates.',
+      'Shared UI package across 5+ screens — **~1,200 duplicate lines** gone, **~30% faster** to build.',
+      'AI-assist plugin on NestJS; core library cut new-LLM onboarding **from a week to a day**.',
+      'Led **3 engineers** to a chatbot MVP in **2 months** — contract processing **~40% faster**.',
+      'Agentic report builder (AutoGen, MCP) answering plain-English questions over PostgreSQL.',
+      'Real-time WebSocket services on Kubernetes, Redis state with **leader election** across pods.',
     ],
     stack: ['React', 'NestJS', 'TypeScript', 'Redis', 'RabbitMQ', 'Kafka', 'Kubernetes', 'PostgreSQL'],
   },
@@ -47,11 +61,75 @@ export const roles: Role[] = [
     location: 'Pune, India',
     period: 'Jul 2022 — Jul 2024',
     highlights: [
-      'Developed 20+ reusable React components with Redux, TypeScript, hooks and Material-UI, cutting duplicated UI work across modules.',
-      'Designed and delivered the shared CORE-UI components the wider team built on.',
-      'Authored test suites with Jest and React Testing Library, lifting coverage past 85%.',
+      '**20+ reusable React components** in Redux, TypeScript and Material-UI.',
+      'Built the shared **CORE-UI library** the wider team developed against.',
+      'Jest and React Testing Library suites, lifting coverage **past 85%**.',
     ],
     stack: ['React', 'Redux', 'TypeScript', 'Material-UI', 'Jest'],
+  },
+];
+
+export const disciplines: Discipline[] = [
+  {
+    label: 'Front-End Engineer',
+    blurb: 'Component-driven React apps, and the reusable UI libraries other teams build on top of.',
+  },
+  {
+    label: 'Back-End Engineer',
+    blurb:
+      'Event-driven NestJS microservices, real-time WebSocket services, and the data layer beneath them.',
+  },
+  {
+    label: 'AI Engineer',
+    blurb: 'LLM integrations, agentic tooling with AutoGen and MCP, and the APIs that serve them.',
+  },
+  {
+    label: 'Platform',
+    blurb: 'Docker and Kubernetes, GitHub Actions pipelines, Grafana observability and load testing.',
+  },
+];
+
+// DRAFT — inferred from the workspace; confirm dates and ownership before this ships.
+// Written to foreground the engineering, not the domain. Keep it that way.
+export const freelanceProjects: FreelanceProject[] = [
+  {
+    name: 'Real-time session platform',
+    role: 'Backend engineer',
+    period: '2026',
+    blurb:
+      'Distributed backend driving short-lived, high-frequency interactive sessions for thousands of concurrent users.',
+    highlights: [
+      '**Ten independent services** on a shared TypeScript core library, with strict **transactional and state-consistency guarantees**.',
+      'Redis-backed session state with **leader election across pods**, so exactly one node advances each session.',
+      'Kubernetes on DigitalOcean, GitHub Actions CI/CD, Grafana/Loki observability and **k6 load testing**.',
+    ],
+    stack: ['NestJS', 'TypeScript', 'Redis', 'Kafka', 'Kubernetes', 'PostgreSQL'],
+  },
+  {
+    name: 'Live event streaming engine',
+    role: 'Full stack',
+    period: '2026',
+    blurb:
+      'Tick-based real-time engine built from scratch against an existing protocol specification and client bundle.',
+    highlights: [
+      '**Deterministic, independently verifiable** outcomes from a seeded RNG.',
+      '**Sub-second** state fan-out to concurrent clients over Centrifugo WebSockets.',
+      '**Idempotent** transaction handling against a third-party ledger API — **at-most-once** on every write.',
+    ],
+    stack: ['NestJS', 'TypeScript', 'Redis', 'PostgreSQL'],
+  },
+  {
+    name: 'Multi-tenant admin console',
+    role: 'Full stack',
+    period: '2026',
+    blurb:
+      'Reporting and administration console for partner organisations and their multi-level account hierarchies.',
+    highlights: [
+      '**Role-based access control** across three distinct permission tiers.',
+      '**Cross-database reporting** that merges several product lines into one consistent set of figures.',
+      'Found and remediated a **privilege-escalation flaw** during a security review.',
+    ],
+    stack: ['React', 'TypeScript', 'NestJS', 'PostgreSQL'],
   },
 ];
 

@@ -1,6 +1,8 @@
+import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Experience } from './components/Experience';
 import { Footer } from './components/Footer';
+import { Freelance } from './components/Freelance';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Recognition } from './components/Recognition';
@@ -18,10 +20,12 @@ export default function App() {
 
       <Header />
 
-      <main id="main" className="mx-auto max-w-3xl px-6">
+      <main id="main" className="mx-auto max-w-5xl px-6">
         <Hero />
-        <Experience />
+        <About />
         <Skills />
+        <Experience />
+        <Freelance />
         <Recognition />
         <Contact />
         <Footer />

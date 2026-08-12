@@ -12,20 +12,20 @@ const channels = [
 
 export function Contact() {
   return (
-    <Section id="contact" title="Contact">
+    <Section id="contact" eyebrow="Say hello" title="Get in touch">
       <Reveal>
-        <p className="max-w-xl text-lg leading-relaxed text-pretty">
+        <p className="mx-auto max-w-xl text-center text-lg leading-relaxed text-muted text-pretty">
           Open to full-stack roles and interesting problems. The fastest way to reach me is email — I read
           everything.
         </p>
 
-        <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-3">
           {channels.map(({ href, label, icon: Icon, external }) => (
             <li key={href}>
               <a
                 href={href}
                 {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                className="group flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-4 py-3.5 text-sm transition-colors duration-300 hover:border-accent/50 hover:text-accent"
+                className="group flex items-center gap-3 rounded-2xl border border-line bg-surface px-5 py-4 text-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/60"
               >
                 <Icon className="size-4 shrink-0 text-accent" aria-hidden />
                 <span className="truncate">{label}</span>
